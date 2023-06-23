@@ -27,7 +27,9 @@ function handlePlayerChat(event) {
   let y = Math.floor(player.location.y - 2)
   let z = Math.floor(player.location.z)
 
+  console.log(`Placing ${id} at ${x} ${y} ${z}`)
   player.sendMessage(`§ePlacing §c${id} §eat §9${x} §9${y} §9${z}`);
+
   player.world.placeBlock(x, y, z, id);
 }
 
