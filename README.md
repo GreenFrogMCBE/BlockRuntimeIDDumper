@@ -1,3 +1,3 @@
-# BlockRuntimeIDDebugger
+# BlockRuntimeIDDumper
 
-Allows you to debug block runtime ids
+Allows you to dump block runtime ids from the `crafting_data` packet
