@@ -1,4 +1,4 @@
-/**
+/*
 * ░██████╗░██████╗░███████╗███████╗███╗░░██╗███████╗██████╗░░█████╗░░██████╗░
 * ██╔════╝░██╔══██╗██╔════╝██╔════╝████╗░██║██╔════╝██╔══██╗██╔══██╗██╔════╝░
 * ██║░░██╗░██████╔╝█████╗░░█████╗░░██╔██╗██║█████╗░░██████╔╝██║░░██║██║░░██╗░
@@ -15,31 +15,38 @@
 */
 const Frog = require("../../src/Frog");
 
-const badIds = []
+const dumpedIds = [
+  339494639, 976881179, 994207970,
+  1481921079, 368734180, 555751865,
+  -1706049077, 927668178, -307481251,
+  1912846579, -336983999, -2080260717,
+  1014633093, 1576086683, 16603170,
+  904773342, 802520842, -976483655,
+  -362985564, 379907727, -156512822,
+  -2050534635, -1850412551, 769879805,
+  1313381298, -2106754178, -1037882073,
+  -1837802080, 556073414, -199522344,
+  -2089484049
+]
+
+function handlePlayerChat(event) {
+  const { player } = event;
+  const id = generateBlockId();
+
+  let x = Math.floor(player.location.x)
+  let y = Math.floor(player.location.y - 2)
+  let z = Math.floor(player.location.z)
+
+  player.sendMessage(`§ePlacing §c${id} §eat §9${x} §9${y} §9${z}`);
+  player.world.placeBlock(x, y, z, id);
+}
+
+function generateBlockId() {
+  return dumpedIds[Math.floor(Math.random() * dumpedIds.length)];
+}
 
 module.exports = {
   onLoad() {
     Frog.eventEmitter.on('playerChat', handlePlayerChat);
   }
 };
-
-function handlePlayerChat(event) {
-  const { player } = event;
-  const id = generateBlockId();
-
-  badIds.push(id)
-
-  player.sendMessage(`Generating block with id: ${id}`);
-  player.world.placeBlock(1059, 107, -908, id);
-}
-
-function generateBlockId() {
-  const min = 3000;
-  const max = 7999;
-
-  const id = Math.floor(Math.random() * (max - min + 1)) + min
-
-  if (badIds.includes(id)) generateBlockId();
-
-  return id;
-}
