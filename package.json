@@ -1,6 +1,6 @@
 {
-  "name": "blockruntimeiddebugger",
-  "main": "blockruntimeiddebugger.js",
+  "name": "blockruntimeiddumper",
+  "main": "blockruntimeiddumper.js",
   "version": "1.0.0",
-  "displayName": "BlockRuntimeIDDebugger"
+  "displayName": "BlockRuntimeIDDumper"
 }
