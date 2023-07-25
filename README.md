@@ -2,9 +2,7 @@
 
 Allows you to dump block runtime ids from the `crafting_data` packet
 
-## Deprecated
-
-Please use https://github.com/GreenFrogMCBE/GreenFrogMCBE/blob/main/src/api/block/LegacyToRuntimeIdConverter.js
+#### Deprecated - Please use https://github.com/GreenFrogMCBE/GreenFrogMCBE/blob/main/src/api/block/LegacyToRuntimeIdConverter.js
 
 ### crafting_data
 
